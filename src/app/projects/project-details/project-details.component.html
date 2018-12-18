@@ -1,0 +1,104 @@
+<header>
+  <p levels>Projects / {{ project.projectName }}</p>
+
+  <!-- <div content>
+    <p>Edit project details</p>
+  </div> -->
+</header>
+
+<!-- <div class="container">
+  <div class="row">
+    <div class="col">
+      Project name: {{ project.projectName }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      Active: {{ project.status }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      Priority: {{ project.priority }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      Description: {{ project.description }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      Project name: {{ project.developer.firstName }} {{ project.developer.lastName }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      Project name: {{ project.developer.spentTime }}
+    </div>
+  </div>
+  <div class="row">
+    <div class="col">
+      Project name: {{ project.developer.comment }}
+    </div>
+  </div>
+</div> -->
+
+<div class="container">
+    <div class="row form-group">
+        <div class="col">
+          <h5>Edit {{ project.projectName }} project</h5>
+        </div>
+    </div>
+  <form [formGroup]="projectForm">
+    <div class="row form-group">
+      <div class="col-sm-2">
+        <label class="float-right">Project name</label>
+      </div>
+      <div class="col-sm-9">
+        <input formControlName="projectName" type="text" class="form-control" placeholder="project name">
+        <p *ngIf="!projectForm.get('projectName').valid && projectForm.get('projectName').dirty" class="error">This
+          field is required!</p>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-sm-2">
+        <label class="float-right">Description</label>
+      </div>
+      <div class="col-sm-9">
+        <input formControlName="description" type="text" class="form-control" placeholder="description">
+        <p *ngIf="!projectForm.get('description').valid && projectForm.get('description').dirty" class="error">This
+          field is required!</p>
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-sm-2">
+        <label class="float-right">Priority</label>
+      </div>
+      <div class="col-sm-9">
+        <input formControlName="priority" type="text" class="form-control" placeholder="priority">
+      </div>
+    </div>
+    <div class="row form-group">
+      <div class="col-sm-2">
+        <label class="float-right">Active</label>
+      </div>
+      <div class="col-sm-9">
+        <input formControlName="status" type="checkbox" placeholder="status">
+        <p *ngIf="!projectForm.get('status').valid && projectForm.get('status').dirty" class="error">This field is
+          required!</p>
+      </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-sm-11">
+              <button [disabled]="projectForm.invalid" (click)="updateProject()" class="btn btn-primary float-right">Save
+                changes</button>
+            </div>
+          </div>
+    </div>
+
+  </form>
+  <pre>{{ projectForm.value | json }}</pre>
+  <pre>stan projectName: {{ projectForm.get('projectName').valid | json }}</pre>
+</div>

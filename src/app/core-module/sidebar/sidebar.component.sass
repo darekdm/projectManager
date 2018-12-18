@@ -1,0 +1,30 @@
+.sidebar 
+    width: 250px;
+    position: fixed;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.2);
+
+    nav 
+        display: flex
+        height: 100%;
+        flex-flow: column nowrap;
+        justify-content: center;
+    ul 
+        padding-inline-start: 0px;
+
+    li 
+        color: #fff;
+        line-height: 40px;
+        font-size: 20px;
+        cursor: pointer;
+        transition: all .3s;
+        list-style: none;
+        padding-left: 20px;
+
+    li:hover
+        background-color: rgba(255,255,255,0.4);
+        padding-left: 40px;
+    
+    li.active
+        background-color: rgba(255,255,255,0.4);
+        padding-left: 40px;
